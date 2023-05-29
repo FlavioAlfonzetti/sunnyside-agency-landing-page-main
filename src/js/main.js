@@ -1,10 +1,10 @@
 import '../scss/index.scss';
 
-const logoHamburger = document.querySelector("[data-id='logo-hamburger']");
+const hamburger = document.querySelector("[data-id='hamburger']");
 const menuHamburger = document.querySelector("[data-id='menu-hamburger']");
 const arrowDown = document.querySelector("[data-id='arrow-down']");
 
-logoHamburger.addEventListener('click', () => {
+hamburger.addEventListener('click', () => {
   menuHamburger.classList.toggle('active');
   arrowDown.classList.toggle('remove');
   if (!menuHamburger.classList.contains('active')) {

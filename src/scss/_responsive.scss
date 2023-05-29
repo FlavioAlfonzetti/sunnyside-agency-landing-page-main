@@ -1,0 +1,60 @@
+@mixin content-1_2__xxl {
+  @media (min-width: 1600px) {
+    display: flex;
+    margin: 0 14.5rem;
+
+    &__img-mobile {
+      display: none;
+    }
+
+    &__img-desktop {
+      display: block;
+
+      img {
+        display: inherit;
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: unset;
+      text-align: left;
+      gap: 1rem;
+      padding: 0 8rem;
+
+      h2 {
+        font-size: $fs-h2;
+        font-weight: $fw-black;
+      }
+
+      p {
+        font-size: $fs-copy;
+        padding: 0.5rem 0;
+        line-height: 1.5rem;
+        color: $neutral__dark-grayish-blue;
+      }
+
+      h4 {
+        position: relative;
+        font-weight: $fw-black;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 134px;
+          height: 16px;
+          opacity: 0.3;
+          left: 13%;
+          border-radius: 5px;
+        }
+
+        &:hover::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
