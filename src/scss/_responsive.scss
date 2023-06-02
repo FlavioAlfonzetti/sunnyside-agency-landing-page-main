@@ -1,7 +1,144 @@
-@mixin content-1_2__xxl {
-  @media (min-width: 1600px) {
+// LG
+@mixin content-1_2__lg {
+  @include breakpoint(medium) {
+    &__img-desktop {
+      display: none;
+    }
+
+    &__img-mobile {
+      overflow: hidden;
+      img {
+        width: 100%;
+        margin-top: -3rem;
+        margin-bottom: -3rem;
+      }
+    }
+
+    &__text {
+      display: flex;
+      height: 30vh;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0 5rem;
+
+      h2 {
+        font-family: $ff-secondary;
+        font-size: $fs-h2_lg;
+        font-weight: $fw-black;
+      }
+
+      p {
+        font-size: $fs-copy_lg;
+        padding: 0.5rem 0;
+        line-height: 1.5rem;
+        color: $neutral__dark-grayish-blue;
+      }
+
+      h4 {
+        position: relative;
+        font-family: $ff-secondary;
+        text-transform: uppercase;
+        font-weight: $fw-black;
+        cursor: pointer;
+        font-size: $fs-h4_lg;
+
+        &::after {
+          content: '';
+          position: absolute;
+          display: inline-block;
+          width: 160px;
+          height: 16px;
+          left: 50%;
+          top: 20%;
+          transform: translateX(-50%);
+          color: $primary__yellow;
+          opacity: 0.3;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+@mixin content-3_4__lg {
+  @include breakpoint(medium) {
+    &__img-mobile {
+      overflow: hidden;
+      img {
+        width: 100%;
+        display: block;
+        margin-bottom: -24rem;
+      }
+    }
+
+    &__img-desktop {
+      display: none;
+    }
+
+    &__text {
+      display: flex;
+      position: absolute;
+      top: 45rem;
+      text-align: center;
+      flex-direction: column;
+      padding: 0 5rem;
+      gap: 2rem;
+
+      h2 {
+        font-family: $ff-secondary;
+        font-size: $fs-h2_lg;
+      }
+
+      p {
+        font-size: $fs-copy_lg;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+@mixin testimonials__lg {
+  @include breakpoint(medium) {
+    .testimonials-only {
+      .testimonial-1,
+      .testimonial-2,
+      .testimonial-3 {
+        padding: 1.5rem 5rem;
+
+        img {
+          width: 4rem;
+          border-radius: 50%;
+        }
+
+        p {
+          padding: 1rem 0;
+          font-size: $fs-copy;
+          color: $neutral__very-dark-grayish-blue;
+          line-height: 1.5;
+        }
+
+        h4 {
+          font-family: $ff-secondary;
+          padding: 0.5rem 0;
+          font-weight: $fw-black;
+        }
+
+        h5 {
+          color: $neutral__grayish-blue;
+        }
+      }
+    }
+  }
+}
+
+// XL
+@mixin content-1_2__xl {
+  @include breakpoint(xlarge) {
     display: flex;
-    margin: 0 14.5rem;
+    max-width: 1440px;
+    margin: 0 auto;
 
     &__img-mobile {
       display: none;
@@ -39,6 +176,7 @@
       h4 {
         position: relative;
         font-weight: $fw-black;
+        font-size: unset;
 
         &::after {
           content: '';
@@ -54,6 +192,87 @@
         &:hover::after {
           opacity: 1;
         }
+      }
+    }
+  }
+}
+
+@mixin content-3_4__xl {
+  @include breakpoint(xlarge) {
+    &__img-mobile {
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        display: block;
+        margin-bottom: -200px;
+      }
+    }
+
+    &__img-desktop {
+      display: none;
+    }
+
+    &__text {
+      display: flex;
+      position: absolute;
+      top: 24.5rem;
+      text-align: center;
+      flex-direction: column;
+      padding: 0;
+      gap: 2rem;
+
+      h2 {
+        font-family: $ff-secondary;
+        font-size: $fs-h2;
+      }
+
+      p {
+        font-size: $fs-copy;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+@mixin testimonials__xl {
+  @include breakpoint(xlarge) {
+    margin: 5rem 0;
+
+    .testimonials-only {
+      display: flex;
+      flex-direction: row;
+      margin: 0 8rem;
+
+      .testimonial-1,
+      .testimonial-2,
+      .testimonial-3 {
+        padding: 3rem 1.5rem;
+      }
+    }
+  }
+}
+
+/* XXL */
+/* @mixin content-1_2__xxl {
+  @include breakpoint(xxlarge) {
+    margin: 0 15rem;
+  }
+} */
+
+@mixin testimonials__xxl {
+  @include breakpoint(xxlarge) {
+    margin: 5rem 0;
+
+    .testimonials-only {
+      display: flex;
+      flex-direction: row;
+      margin: 0 20rem;
+
+      .testimonial-1,
+      .testimonial-2,
+      .testimonial-3 {
+        padding: 3rem 1.5rem;
       }
     }
   }

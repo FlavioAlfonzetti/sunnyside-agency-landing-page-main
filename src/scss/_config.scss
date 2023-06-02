@@ -61,9 +61,7 @@
 }
 
 @mixin content-3_4 {
-  &__img-desktop {
-    display: none;
-  }
+  position: relative;
 
   &__img-mobile {
     img {
@@ -97,32 +95,48 @@
   }
 }
 
-@mixin testimonial {
-  padding: 1rem 0;
+@mixin testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 1.6rem;
+  text-align: center;
 
-  @media (min-width: 1600px) {
-    padding: 0 1.5rem;
-  }
-
-  img {
-    width: 4rem;
-    border-radius: 50%;
-  }
-
-  p {
-    padding: 1rem 0;
-    font-size: $fs-copy;
-    color: $neutral__very-dark-grayish-blue;
-    line-height: 1.5;
-  }
-
-  h4 {
+  h2 {
+    text-transform: uppercase;
     font-family: $ff-secondary;
-    padding: 0.5rem 0;
-    font-weight: $fw-black;
+    font-size: $fs-copy;
+    letter-spacing: 0.2rem;
+    color: $neutral__grayish-blue;
   }
 
-  h5 {
-    color: $neutral__grayish-blue;
+  .testimonials-only {
+    .testimonial-1,
+    .testimonial-2,
+    .testimonial-3 {
+      padding: 1rem 0;
+
+      img {
+        width: 4rem;
+        border-radius: 50%;
+      }
+
+      p {
+        padding: 1rem 0;
+        font-size: $fs-copy;
+        color: $neutral__very-dark-grayish-blue;
+        line-height: 1.5;
+      }
+
+      h4 {
+        font-family: $ff-secondary;
+        padding: 0.5rem 0;
+        font-weight: $fw-black;
+      }
+
+      h5 {
+        color: $neutral__grayish-blue;
+      }
+    }
   }
 }

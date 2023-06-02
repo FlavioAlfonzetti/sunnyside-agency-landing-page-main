@@ -1,4 +1,4 @@
-@import 'config', 'variables', 'responsive';
+@import 'config', 'variables', 'responsive', 'breakpoints';
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
 
 html {
@@ -14,7 +14,7 @@ body {
     z-index: 10;
     padding: 2rem 1.5rem;
 
-    @media (min-width: 1600px) {
+    @include breakpoint(large) {
       padding: 3rem 3rem;
     }
 
@@ -23,14 +23,14 @@ body {
       flex-direction: row;
       justify-content: space-between;
 
-      @media (min-width: 1600px) {
+      @include breakpoint(large) {
         align-items: center;
       }
 
       .logo {
         cursor: pointer;
 
-        @media (min-width: 1600px) {
+        @include breakpoint(large) {
           display: block;
           z-index: 10;
 
@@ -43,7 +43,7 @@ body {
       .hamburger {
         cursor: pointer;
 
-        @media (min-width: 1600px) {
+        @include breakpoint(large) {
           display: none;
         }
       }
@@ -51,7 +51,8 @@ body {
       ul {
         display: none;
         position: absolute;
-        width: 87%;
+        width: 87.5%;
+        left: 6%;
         flex-direction: column;
         align-items: center;
         background-color: $neutral__white;
@@ -61,13 +62,13 @@ body {
         gap: 2rem;
         transform-origin: top right;
 
-        @media (min-width: 1600px) {
+        @include breakpoint(large) {
           display: flex;
           flex-direction: row;
           background-color: transparent;
           justify-content: flex-end;
           margin: 0;
-          padding: 0;
+          padding: 4rem;
           width: 95%;
           gap: 3.5rem;
         }
@@ -80,7 +81,7 @@ body {
           border-top: 30px solid transparent;
           border-right: 30px solid #ffffff;
 
-          @media (min-width: 1600px) {
+          @include breakpoint(large) {
             display: none;
           }
         }
@@ -128,7 +129,7 @@ body {
           font-size: $fs-copy;
           cursor: pointer;
 
-          @media (min-width: 1600px) {
+          @include breakpoint(large) {
             color: $neutral__white;
             font-size: $fs-copy-lg;
           }
@@ -136,7 +137,7 @@ body {
           &:last-child {
             margin-top: 1rem;
 
-            @media (min-width: 1600px) {
+            @include breakpoint(large) {
               margin: 0;
             }
           }
@@ -148,7 +149,7 @@ body {
             padding: 1rem 1.8rem;
             border-radius: 3rem;
 
-            @media (min-width: 1600px) {
+            @include breakpoint(large) {
               background-color: $neutral__white;
               color: $primary__dark-blue;
 
@@ -177,7 +178,14 @@ body {
     height: 700px;
     max-height: 100vh;
 
-    @media (min-width: 1600px) {
+    @include breakpoint(medium) {
+      background: url('../images/desktop/image-header.jpg');
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @include breakpoint(xlarge) {
       background: url('../images/desktop/image-header.jpg');
       height: 100vh;
       background-size: cover;
@@ -194,7 +202,11 @@ body {
       top: 10rem;
       letter-spacing: 0.3rem;
 
-      @media (min-width: 1600px) {
+      @include breakpoint(large) {
+        font-size: $fs-header_md;
+      }
+
+      @include breakpoint(xlarge) {
         font-size: $fs-header-lg;
         margin-top: 4rem;
         letter-spacing: 0.5rem;
@@ -208,7 +220,7 @@ body {
         transition: all 0.2s ease-in-out;
         animation: toSection 3s infinite;
 
-        @media (min-width: 1600px) {
+        @include breakpoint(xlarge) {
           padding-top: 0;
         }
 
@@ -236,9 +248,11 @@ body {
 
   .brand {
     @include content-1_2;
-    @include content-1_2__xxl;
+    @include content-1_2__lg;
+    @include content-1_2__xl;
+    /* @include content-1_2__xxl; */
 
-    @media (min-width: 1600px) {
+    @include breakpoint(xlarge) {
       flex-direction: row-reverse;
     }
 
@@ -246,10 +260,6 @@ body {
       h4 {
         &::after {
           border-bottom: 7px solid $primary__yellow;
-
-          @media (min-width: 1600px) {
-            /* left: 22rem; */
-          }
         }
       }
     }
@@ -257,33 +267,47 @@ body {
 
   .audience {
     @include content-1_2;
-    @include content-1_2__xxl;
+    @include content-1_2__lg;
+    @include content-1_2__xl;
+    /* @include content-1_2__xxl; */
 
     &__text {
       h4 {
         &::after {
           border-bottom: 7px solid $primary__soft-red;
-
-          @media (min-width: 1600px) {
-            /* right: 43.5rem; */
-          }
         }
       }
     }
   }
 
   .graphic-photography {
-    @media (min-width: 1600px) {
+    @include breakpoint(xlarge) {
+      display: flex;
+    }
+
+    @include breakpoint(xxlarge) {
       display: flex;
       margin: 0 14.5rem;
     }
 
     .graphic-design {
       @include content-3_4;
+      @include content-3_4__lg;
+      @include content-3_4__xl;
 
-      position: relative;
+      @include breakpoint(xlarge) {
+        &__img-mobile {
+          display: none;
+        }
 
-      @media (min-width: 1600px) {
+        &__img-desktop {
+          display: block;
+        }
+      }
+
+      @include breakpoint(xxlarge) {
+        margin-left: 0.54rem;
+
         &__img-mobile {
           display: none;
         }
@@ -300,7 +324,7 @@ body {
       p {
         color: $primary__dark-desaturated-cyan;
 
-        @media (min-width: 1600px) {
+        @include breakpoint(xlarge) {
           margin: 0 10rem;
         }
       }
@@ -308,10 +332,10 @@ body {
 
     .photography {
       @include content-3_4;
+      @include content-3_4__lg;
+      @include content-3_4__xl;
 
-      position: relative;
-
-      @media (min-width: 1600px) {
+      @include breakpoint(xlarge) {
         &__img-mobile {
           display: none;
         }
@@ -328,7 +352,7 @@ body {
       p {
         color: $primary__dark-blue;
 
-        @media (min-width: 1600px) {
+        @include breakpoint(xlarge) {
           margin: 0 10rem;
         }
       }
@@ -336,38 +360,10 @@ body {
   }
 
   .testimonials {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 3rem 1.6rem;
-    text-align: center;
-
-    @media (min-width: 1600px) {
-      margin: 0 20rem;
-      padding: 10rem 0;
-    }
-
-    h2 {
-      text-transform: uppercase;
-      font-family: $ff-secondary;
-      font-size: $fs-copy;
-      letter-spacing: 0.2rem;
-      color: $neutral__grayish-blue;
-    }
-
-    .testimonials-only {
-      @media (min-width: 1600px) {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .testimonial-1,
-      .testimonial-2,
-      .testimonial-3,
-      .testimonial-4 {
-        @include testimonial;
-      }
-    }
+    @include testimonials;
+    @include testimonials__lg;
+    @include testimonials__xl;
+    @include testimonials__xxl;
   }
 
   footer {
@@ -376,7 +372,7 @@ body {
       grid-template-columns: 1fr 1fr;
       overflow: hidden;
 
-      @media (min-width: 1600px) {
+      @include breakpoint(xlarge) {
         display: none;
       }
 
@@ -389,7 +385,7 @@ body {
     .footer-img__desktop {
       display: none;
 
-      @media (min-width: 1600px) {
+      @include breakpoint(xlarge) {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
 
